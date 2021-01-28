@@ -13,11 +13,18 @@ class App extends Component {
         // { city: "Mumbai", country: "IN" },
       ],
 
-      locationData: [{ city: "", country: "" }],
+      locationData: [],
     };
+
+    this.addWeather = this.addWeather.bind(this);
+    this.fetchAll = this.fetchAll.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
+    this.fetchAll();
+  }
+
+  fetchAll() {
     this.state.location.map((loca) => {
       const weatherData = fetch(
         `http://api.openweathermap.org/data/2.5/weather?q=${loca.city},${loca.country}&appid=079b76b390ad70c628a14a9a141e5992`
@@ -39,14 +46,43 @@ class App extends Component {
     });
   }
 
+  addWeather() {
+    const city = document.getElementById("city");
+    const country = document.getElementById("country");
+
+    console.log("city is " + city.value);
+    console.log("country is " + country.value);
+
+    let newarray = this.state.location;
+
+    newarray.push({ city: city.value, country: country.value });
+
+    this.setState({ location: newarray });
+
+    this.fetchAll();
+  }
+
   render() {
     return (
       <>
-        <h1> This is current weather</h1>
-
-        {this.state.locationData.map((locobj) => {
-          return <Weather weatherData={locobj}> </Weather>;
+        {this.state.locationData.map((locobj, index) => {
+          return (
+            <ol key={index}>
+              <li>
+                {console.log(index)}
+                <Weather weatherData={locobj}></Weather>{" "}
+              </li>
+            </ol>
+          );
         })}
+
+        <form>
+          <input type="text" placeholder="country" id="country"></input>
+          <input type="text" placeholder="city" id="city"></input>
+          <button type="button" onClick={this.addWeather}>
+            submit
+          </button>
+        </form>
       </>
     );
   }

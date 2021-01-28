@@ -9,7 +9,11 @@ class Weather extends Component {
   componentDidMount() {}
 
   render() {
-    return <h1> HelloWorld {this.props.weatherData.city}</h1>;
+    return (
+      <h1 key={this.props.key}>
+        {this.props.weatherData.city} {this.props.weatherData.temp}
+      </h1>
+    );
   }
 }
 
