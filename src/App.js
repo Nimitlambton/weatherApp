@@ -4,8 +4,6 @@ import React, { Component } from "react";
 
 class App extends Component {
   constructor(props) {
-    let locationDataArr = [];
-
     super(props);
     this.state = {
       location: [
@@ -27,6 +25,7 @@ class App extends Component {
       weatherData.then((res) => {
         res.json().then((result) => {
           let newarray = this.state.locationData;
+
           newarray.push({
             city: result.name,
             country: result.sys.country,
@@ -34,10 +33,9 @@ class App extends Component {
           });
 
           this.setState({ locationData: newarray });
-
-          // console.log(this.state.locationData);
         });
       });
+      return 1;
     });
   }
 
@@ -47,7 +45,7 @@ class App extends Component {
         <h1> This is current weather</h1>
 
         {this.state.locationData.map((locobj) => {
-          return <Weather weatherData={locobj.city}> </Weather>;
+          return <Weather weatherData={locobj}> </Weather>;
         })}
       </>
     );
