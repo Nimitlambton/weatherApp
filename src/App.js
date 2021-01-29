@@ -57,24 +57,37 @@ class App extends Component {
 
     newarray.push({ city: city.value, country: country.value });
 
-    this.setState({ location: newarray });
+    //console.log(newarray);
+    //this.setState({ location: newarray });
+    //console.log(this.state.location);
+    // this.fetchAll();
 
-    this.fetchAll();
+    let newarray2 = this.state.locationData;
+
+    newarray2.push({
+      city: "dummy",
+      country: "this way dummy",
+      temp: "dummy",
+    });
+
+    this.setState({ locationData: newarray2 });
   }
 
   render() {
     return (
       <>
-        {this.state.locationData.map((locobj, index) => {
-          return (
-            <ol key={index}>
-              <li>
-                {console.log(index)}
-                <Weather weatherData={locobj}></Weather>{" "}
-              </li>
-            </ol>
-          );
-        })}
+        {
+          this.state.locationData.map((locobj, index) => {
+            return (
+              <ol key={index}>
+                <li>
+                  <Weather weatherData={locobj}></Weather>{" "}
+                </li>
+              </ol>
+            );
+          })
+          // console.log(this.removeDupli())
+        }
 
         <form>
           <input type="text" placeholder="country" id="country"></input>
