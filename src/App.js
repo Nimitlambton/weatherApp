@@ -56,6 +56,7 @@ class App extends Component {
   populateSelectedCity() {
     this.state.location.map((apiLocation) => {
       this.getWeatherAndSetState(apiLocation.city, apiLocation.country);
+      return 1;
     });
   }
 
