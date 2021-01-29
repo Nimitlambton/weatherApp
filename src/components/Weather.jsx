@@ -11,8 +11,8 @@ class Weather extends Component {
   render() {
     return (
       <h1 key={this.props.key}>
-        {this.props.weatherData.city}
-        {this.props.weatherData.country} {this.props.weatherData.temp}
+        {this.props.weatherData.city} &nbsp;
+        {this.props.weatherData.country} &nbsp;{this.props.weatherData.temp}
       </h1>
     );
   }
