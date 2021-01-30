@@ -30,12 +30,18 @@ class App extends Component {
 
   render() {
     return (
-      <div className="box-border md:box-content ...">
+      <div className="p-20 ">
         {this.state.locationData.map((locObj, index) => {
-          return <Weather weatherData={locObj}></Weather>;
+          return (
+            <div className="  p-3">
+              <Weather weatherData={locObj}></Weather>{" "}
+            </div>
+          );
         })}
 
-        <InputWeather onAddCity={this.addCity}> </InputWeather>
+        <div className="p-20 ">
+          <InputWeather onAddCity={this.addCity}> </InputWeather>{" "}
+        </div>
       </div>
     );
   }
