@@ -1,6 +1,7 @@
-import Weather from "./components/Weather";
-
+import Weather from "./components/Weathers";
 import React, { Component } from "react";
+
+import InputWeather from "./components/inputWeather";
 
 import "./index.css";
 
@@ -31,22 +32,10 @@ class App extends Component {
     return (
       <div className="box-border md:box-content ...">
         {this.state.locationData.map((locObj, index) => {
-          return (
-            <ol key={index}>
-              <li>
-                <Weather weatherData={locObj}></Weather>
-              </li>
-            </ol>
-          );
+          return <Weather weatherData={locObj}></Weather>;
         })}
 
-        <form>
-          <input type="text" placeholder="country" id="country"></input>
-          <input type="text" placeholder="city" id="city"></input>
-          <button type="button" onClick={this.addCity}>
-            submit
-          </button>
-        </form>
+        <InputWeather onAddCity={this.addCity}> </InputWeather>
       </div>
     );
   }
