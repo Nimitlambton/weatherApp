@@ -70,6 +70,10 @@ class App extends Component {
 
   //method to fetchData from api and set state
   getWeatherAndSetState(cityname, country) {
+    if (cityname == "" && country == "") {
+      return;
+    }
+
     const weatherData = fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${cityname},${country}&&units=metric&appid=079b76b390ad70c628a14a9a141e5992`
     );
