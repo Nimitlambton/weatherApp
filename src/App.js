@@ -70,7 +70,7 @@ class App extends Component {
 
   //method to fetchData from api and set state
   getWeatherAndSetState(cityname, country) {
-    if (cityname == "" && country == "") {
+    if (cityname === "" && country === "") {
       return;
     }
 
