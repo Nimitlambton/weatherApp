@@ -18,7 +18,7 @@ class App extends Component {
       //getLoctionData from api
       locationData: [],
     };
-    //heling  functions
+    //helping  functions
     this.addCity = this.addCity.bind(this);
     this.populateSelectedCity = this.populateSelectedCity.bind(this);
   }
@@ -29,7 +29,7 @@ class App extends Component {
 
   render() {
     return (
-      <div class="shadow-md ...">
+      <div className="box-border md:box-content ...">
         {this.state.locationData.map((locObj, index) => {
           return (
             <ol key={index}>
@@ -40,13 +40,10 @@ class App extends Component {
           );
         })}
 
-        <form class="border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent ...">
+        <form>
           <input type="text" placeholder="country" id="country"></input>
           <input type="text" placeholder="city" id="city"></input>
-          <button
-            class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
-            type="button"
-            onClick={this.addCity}>
+          <button type="button" onClick={this.addCity}>
             submit
           </button>
         </form>
@@ -70,8 +67,8 @@ class App extends Component {
     const city = document.getElementById("city");
     const country = document.getElementById("country");
 
-    console.log("city is " + city.value);
-    console.log("country is " + country.value);
+    //    console.log("city is " + city.value);
+    //  console.log("country is " + country.value);
 
     this.getWeatherAndSetState(city.value, country.value);
   }
@@ -82,20 +79,22 @@ class App extends Component {
       `http://api.openweathermap.org/data/2.5/weather?q=${cityname},${country}&&units=metric&appid=079b76b390ad70c628a14a9a141e5992`
     );
 
-    weatherData.then((res) => {
-      res.json().then((result) => {
-        console.log(result);
+    weatherData
+      .then((res) => {
+        res.json().then((result) => {
+          //   console.log(result);
 
-        let newarray2 = this.state.locationData;
-        newarray2.push({
-          city: result.name,
-          country: result.sys.country,
-          temp: result.main.temp,
+          let newarray2 = this.state.locationData;
+          newarray2.push({
+            city: result.name,
+            country: result.sys.country,
+            temp: result.main.temp,
+          });
+
+          this.setState({ locationData: newarray2 });
         });
-
-        this.setState({ locationData: newarray2 });
-      });
-    });
+      })
+      .finally("you fucking enter ");
   }
 }
 
