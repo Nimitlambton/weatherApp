@@ -1,8 +1,11 @@
 module.exports = {
-  purge: false,
+  purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    fontFamily: {
+      display: ["Tenor Sans", "Georgia", "serif"],
+      body: ["Inter", "system-ui", "sans-serif"],
+    },
   },
   variants: {
     extend: {
