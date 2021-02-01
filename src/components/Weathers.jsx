@@ -13,14 +13,14 @@ class Weathers extends Component {
     return (
       <div>
         <div className="p-2   bg-black rounded-xl  flex items-center space-x-4 justify-center  ">
-          <div class=" text-purple-400 content-evenly ">
+          <div className=" text-purple-400 content-evenly ">
             {this.props.weatherData.temp}
           </div>
           <div>
-            <div class="text-xl font-medium text-white  content-center ">
+            <div className="text-xl font-medium text-white  content-center ">
               {this.props.weatherData.city}
             </div>
-            <p class="text-gray-500">{this.props.weatherData.country}</p>
+            <p className="text-gray-500">{this.props.weatherData.country}</p>
           </div>
         </div>
       </div>

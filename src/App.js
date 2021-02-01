@@ -42,9 +42,10 @@ class App extends Component {
     return (
       <div className="pl-20 p-20 h-20">
         {this.state.locationData.map((locObj, index) => {
+          console.log(index);
           return (
-            <div className="p-5">
-              <Weather weatherData={locObj}></Weather>{" "}
+            <div className="p-5" key={index}>
+              <Weather weatherData={locObj}></Weather>
             </div>
           );
         })}
@@ -59,7 +60,7 @@ class App extends Component {
           />
         </div>
 
-        <div className="pko" id="pko" style={{ visibility: "hidden" }}>
+        <div className="pulse" id="pko" style={{ visibility: "hidden" }}>
           <InputWeather onAddCity={this.addCity}> </InputWeather>
         </div>
       </div>
