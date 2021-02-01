@@ -12,10 +12,12 @@ class Weathers extends Component {
   render() {
     return (
       <div>
-        <div class="p-2 max-w-sm mx-auto bg-black rounded-xl shadow-md flex items-center space-x-4">
-          <div class=" text-purple-400">{this.props.weatherData.temp}</div>
+        <div className="p-2   bg-black rounded-xl  flex items-center space-x-4 justify-center  ">
+          <div class=" text-purple-400 content-evenly ">
+            {this.props.weatherData.temp}
+          </div>
           <div>
-            <div class="text-xl font-medium text-white">
+            <div class="text-xl font-medium text-white  content-center ">
               {this.props.weatherData.city}
             </div>
             <p class="text-gray-500">{this.props.weatherData.country}</p>

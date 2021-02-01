@@ -1,8 +1,7 @@
 import Weather from "./components/Weathers";
 import React, { Component } from "react";
-
 import InputWeather from "./components/inputWeather";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./index.css";
 
 class App extends Component {
@@ -18,10 +17,21 @@ class App extends Component {
 
       //getLoctionData from api
       locationData: [],
+
+      show: "true",
     };
     //helping  functions
     this.addCity = this.addCity.bind(this);
     this.populateSelectedCity = this.populateSelectedCity.bind(this);
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    const element = document.getElementById("pko");
+
+    console.log(element);
+
+    element.style.visibility = "";
   }
 
   componentDidMount() {
@@ -30,17 +40,27 @@ class App extends Component {
 
   render() {
     return (
-      <div className="p-20 ">
+      <div className="pl-20 p-20 h-20">
         {this.state.locationData.map((locObj, index) => {
           return (
-            <div className="  p-3">
+            <div className="p-5">
               <Weather weatherData={locObj}></Weather>{" "}
             </div>
           );
         })}
 
-        <div className="p-20 ">
-          <InputWeather onAddCity={this.addCity}> </InputWeather>{" "}
+        <div className=" p-2  flex items-center  justify-center">
+          <FontAwesomeIcon
+            icon="plus-circle"
+            size="lg"
+            color="purple"
+            onClick={this.toggle}
+            className=" text-red-100  hover: text-red-500  highlight  "
+          />
+        </div>
+
+        <div className="pko" id="pko" style={{ visibility: "hidden" }}>
+          <InputWeather onAddCity={this.addCity}> </InputWeather>
         </div>
       </div>
     );
@@ -91,6 +111,8 @@ class App extends Component {
           });
 
           this.setState({ locationData: newarray2 });
+          const element = document.getElementById("pko");
+          element.style.visibility = "hidden";
         });
       })
       .finally("you fucking enter ");
