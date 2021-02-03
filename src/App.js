@@ -73,9 +73,9 @@ class App extends Component {
             </div>
           </div>
 
-          <footer className="flex bg-gray-900 justify-center h-8 w-screen  text-yellow-600 text-l flex-initial ">
+          <div className="flex    bg-gray-900 justify-center h-16 w-screen  items-center text-yellow-600 text-xl flex-wrap ">
             Made by Nimit pamnani with ❤️ in Toronto CA
-          </footer>
+          </div>
         </div>
       </>
     );
