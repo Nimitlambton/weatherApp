@@ -14,4 +14,9 @@ import App from "./App";
 
 library.add(fab, faCheckSquare, faCoffee, faPlusCircle, faAnchor);
 
-ReactDOM.render(<App></App>, document.getElementById("root"));
+ReactDOM.render(
+  <div className="bg-red-500">
+    <App></App>{" "}
+  </div>,
+  document.getElementById("root")
+);

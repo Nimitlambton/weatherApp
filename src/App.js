@@ -44,7 +44,7 @@ class App extends Component {
         <div className="bg-green-200 w-screen  text-4xl flex justify-center ">
           <h1> The Weather App</h1>
         </div>
-        <div className="p-4  h-screen w-screen bg-red-400 ">
+        <div className="p-4  h-screen w-screen ">
           <div className="  p-5 flex flex-wrap ">
             {this.state.locationData.map((locObj, index) => {
               console.log(index);
