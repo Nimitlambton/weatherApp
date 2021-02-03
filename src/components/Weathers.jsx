@@ -11,7 +11,7 @@ class Weathers extends Component {
 
   render() {
     return (
-      <div className="bg-black h-48 w-48 p-2 m-4  text-white  hover:border-red-600 hover:bg-gray-500  border-4  hover:text-red-500 rounded-lg ">
+      <div className="bg-black h-48 w-48 p-2 m-4  text-white  hover:border-red-600 hover:bg-gray-500  border-4  hover:text-red-500 rounded-lg justify-between ">
         <div className="flex justify-center"> 🥶 </div>
         <div className="mt-8  h-12  flex justify-center items-center ">
           {this.props.weatherData.temp}
