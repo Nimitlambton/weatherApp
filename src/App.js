@@ -40,30 +40,36 @@ class App extends Component {
 
   render() {
     return (
-      <div className="pl-20 p-20 h-20">
-        {this.state.locationData.map((locObj, index) => {
-          console.log(index);
-          return (
-            <div className="p-5" key={index}>
-              <Weather weatherData={locObj}></Weather>
+      <>
+        <div className="bg-green-200 w-screen  text-4xl flex justify-center ">
+          <h1> The Weather App</h1>
+        </div>
+        <div className="p-4  h-screen w-screen bg-red-400 ">
+          <div className="  p-5 flex flex-wrap ">
+            {this.state.locationData.map((locObj, index) => {
+              console.log(index);
+              return (
+                <div key={index}>
+                  <Weather weatherData={locObj}></Weather>
+                </div>
+              );
+            })}
+
+            <div className=" w-20 flex justify-center items-center ">
+              <FontAwesomeIcon
+                icon="plus-circle"
+                size="lg"
+                color="purple"
+                onClick={this.toggle}
+              />
             </div>
-          );
-        })}
+          </div>
 
-        <div className=" p-2  flex items-center  justify-center">
-          <FontAwesomeIcon
-            icon="plus-circle"
-            size="lg"
-            color="purple"
-            onClick={this.toggle}
-            className=" text-red-100  hover: text-red-500  highlight  "
-          />
+          <div id="pko" style={{ visibility: "hidden" }}>
+            <InputWeather onAddCity={this.addCity}> </InputWeather>
+          </div>
         </div>
-
-        <div className="pulse" id="pko" style={{ visibility: "hidden" }}>
-          <InputWeather onAddCity={this.addCity}> </InputWeather>
-        </div>
-      </div>
+      </>
     );
   }
 

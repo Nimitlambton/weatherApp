@@ -11,17 +11,14 @@ class Weathers extends Component {
 
   render() {
     return (
-      <div>
-        <div className="p-2   bg-black rounded-xl  flex items-center space-x-4 justify-center  ">
-          <div className=" text-purple-400 content-evenly ">
-            {this.props.weatherData.temp}
-          </div>
-          <div>
-            <div className="text-xl font-medium text-white  content-center ">
-              {this.props.weatherData.city}
-            </div>
-            <p className="text-gray-500">{this.props.weatherData.country}</p>
-          </div>
+      <div className="bg-black h-48 w-48 p-2 m-4  hover:border-red-600 hover:bg-gray-500  border-4  rounded-lg text-gray-600  ">
+        <div className="flex justify-center"> 🥶 </div>
+        <div className="mt-8  h-12  flex justify-center items-center ">
+          {this.props.weatherData.temp}
+        </div>
+        <div className="flex justify-center ">
+          <div className=" ml-2 mr-2"> {this.props.weatherData.city} </div>
+          <div> {this.props.weatherData.country} </div>
         </div>
       </div>
     );
