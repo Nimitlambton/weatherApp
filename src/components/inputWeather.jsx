@@ -14,8 +14,7 @@ class InputWeather extends Component {
               type="text"
               className="m-2   rounded-lg p-2 border-2"
               placeholder="country"
-              id="country"
-              border></input>
+              id="country"></input>
             <input
               type="text"
               placeholder="city"
