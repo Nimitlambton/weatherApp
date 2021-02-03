@@ -7,6 +7,10 @@ import "./index.css";
 class App extends Component {
   constructor(props) {
     super(props);
+
+    //  document.body.classList.add("bg-red-100");
+
+    document.body.className = "bg-green-200";
     this.state = {
       //initalizing the data
       location: [
@@ -41,11 +45,11 @@ class App extends Component {
   render() {
     return (
       <>
-        <div className="bg-green-200 w-screen  text-4xl flex justify-center ">
+        <div className="bg-blue-600 w-screen fixed  text-4xl flex justify-center text-blue-300 ">
           <h1> The Weather App</h1>
         </div>
-        <div className="p-4  h-screen w-screen ">
-          <div className="  p-5 flex flex-wrap ">
+        <div className="p-4  h-screen w-screen m-3   mb-auto   ">
+          <div className="  p-5 flex flex-wrap  mb-auto   ">
             {this.state.locationData.map((locObj, index) => {
               console.log(index);
               return (
@@ -63,11 +67,15 @@ class App extends Component {
                 onClick={this.toggle}
               />
             </div>
+
+            <div id="pko" style={{ visibility: "hidden" }}>
+              <InputWeather onAddCity={this.addCity}> </InputWeather>
+            </div>
           </div>
 
-          <div id="pko" style={{ visibility: "hidden" }}>
-            <InputWeather onAddCity={this.addCity}> </InputWeather>
-          </div>
+          <footer className="flex bg-gray-900 justify-center h-8 w-screen  text-yellow-900 text-l ">
+            Footer
+          </footer>
         </div>
       </>
     );

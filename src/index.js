@@ -15,8 +15,8 @@ import App from "./App";
 library.add(fab, faCheckSquare, faCoffee, faPlusCircle, faAnchor);
 
 ReactDOM.render(
-  <div className="bg-red-500">
-    <App></App>{" "}
+  <div className=" flex flex-col flex-wrap">
+    <App></App>
   </div>,
   document.getElementById("root")
 );
