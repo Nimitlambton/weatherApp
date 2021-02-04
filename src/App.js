@@ -53,8 +53,8 @@ class App extends Component {
           <img src={HeroImg} alt="heroImg" className="w-screen  rounded-lg" />
         </div>
 
-        <div className="h-screen w-screen">
-          <div className="   flex flex-wrap  mb-auto   ">
+        <div className="h-screen w-screen   shadow-2xl  ">
+          <div className=" flex flex-wrap  mb-auto   shadow-2xl  ">
             {this.state.locationData.map((locObj, index) => {
               console.log(index);
               return (
@@ -64,7 +64,7 @@ class App extends Component {
               );
             })}
 
-            <div className=" w-20 flex justify-center items-center ">
+            <div className=" w-20 flex justify-center items-center  ">
               <FontAwesomeIcon
                 icon="plus-circle"
                 size="lg"

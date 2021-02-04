@@ -25,7 +25,7 @@ class Weathers extends Component {
 
   render() {
     return (
-      <div className="bg-black h-48 w-48 p-2 m-4  text-white  hover:border-red-600 hover:bg-gray-500  border-4  hover:text-red-500 rounded-lg justify-between ">
+      <div className="bg-black h-48 w-48 p-2 m-4  text-white  hover:border-red-600 hover:bg-gray-500  border-4  hover:text-red-500 rounded-lg justify-between  shadow-2xl  ">
         <div className="flex justify-center  h-8  text-6xl">
           {this.state.emoji}
         </div>
