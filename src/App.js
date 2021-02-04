@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import InputWeather from "./components/inputWeather";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./index.css";
-
+import HeroImg from "./Assets/heroimg.jpg";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -48,8 +48,13 @@ class App extends Component {
         <div className="bg-blue-600 w-screen fixed  text-4xl flex justify-center text-blue-300 ">
           <h1> The Weather App</h1>
         </div>
-        <div className="p-4  h-screen w-screen m-3   mb-auto   ">
-          <div className="  p-5 flex flex-wrap  mb-auto   ">
+
+        <div className=" flex h-80 mt-10   ">
+          <img src={HeroImg} alt="heroImg" className="w-screen  rounded-lg" />
+        </div>
+
+        <div className="h-screen w-screen">
+          <div className="   flex flex-wrap  mb-auto   ">
             {this.state.locationData.map((locObj, index) => {
               console.log(index);
               return (
@@ -73,7 +78,7 @@ class App extends Component {
             </div>
           </div>
 
-          <div className="flex    bg-gray-900 justify-center h-16 w-screen  items-center text-yellow-600 text-xl flex-wrap ">
+          <div className="flex  bg-gray-900 justify-center h-16 w-screen  items-center text-yellow-600 text-xl flex-wrap ">
             Made by Nimit pamnani with ❤️ in Toronto CA
           </div>
         </div>
