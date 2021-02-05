@@ -18,5 +18,6 @@ ReactDOM.render(
   <div className=" flex flex-col flex-wrap">
     <App></App>
   </div>,
+
   document.getElementById("root")
 );

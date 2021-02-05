@@ -7,9 +7,6 @@ import HeroImg from "./Assets/heroimg.jpg";
 class App extends Component {
   constructor(props) {
     super(props);
-
-    //  document.body.classList.add("bg-red-100");
-
     document.body.className = "bg-green-200";
     this.state = {
       //initalizing the data
@@ -19,26 +16,22 @@ class App extends Component {
         { city: "Mumbai", country: "IN" },
       ],
 
-      //getLoctionData from api
+      // initialize  array to store Location Data from api
       locationData: [],
+
+      //boolean var create toggle effect for weatherInput
 
       show: "true",
     };
+
     //helping  functions
     this.addCity = this.addCity.bind(this);
     this.populateSelectedCity = this.populateSelectedCity.bind(this);
     this.toggle = this.toggle.bind(this);
   }
 
-  toggle() {
-    const element = document.getElementById("pko");
-
-    console.log(element);
-
-    element.style.visibility = "";
-  }
-
   componentDidMount() {
+    //to populate the intial data from fetch
     this.populateSelectedCity();
   }
 
@@ -64,6 +57,7 @@ class App extends Component {
               );
             })}
 
+            {/* add icon  */}
             <div className=" w-20 flex justify-center items-center  ">
               <FontAwesomeIcon
                 icon="plus-circle"
@@ -77,6 +71,8 @@ class App extends Component {
               <InputWeather onAddCity={this.addCity}> </InputWeather>
             </div>
           </div>
+
+          {/* Footer */}
 
           <div className="flex  bg-gray-900 justify-center h-16 w-screen  items-center text-yellow-600 text-xl flex-wrap ">
             Made by Nimit pamnani with ❤️ in Toronto CA
@@ -110,32 +106,42 @@ class App extends Component {
 
   //method to fetchData from api and set state
   getWeatherAndSetState(cityname, country) {
+    //null checker
+
     if (cityname === "" || country === "") {
       return;
     }
 
+    // fetching api
     const weatherData = fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${cityname},${country}&&units=metric&appid=079b76b390ad70c628a14a9a141e5992`
     );
 
+    // after fetching api
     weatherData
       .then((res) => {
         res.json().then((result) => {
-          //   console.log(result);
+          let locationData = this.state.locationData;
 
-          let newarray2 = this.state.locationData;
-          newarray2.push({
+          locationData.push({
             city: result.name,
             country: result.sys.country,
             temp: result.main.temp,
           });
 
-          this.setState({ locationData: newarray2 });
+          //setting  up location data received from  api
+          this.setState({ locationData });
           const element = document.getElementById("pko");
           element.style.visibility = "hidden";
         });
       })
       .finally("you fucking enter ");
+  }
+
+  //helping function to create toggle effect
+  toggle() {
+    const element = document.getElementById("pko");
+    element.style.visibility = "";
   }
 }
 
