@@ -123,12 +123,13 @@ class App extends Component {
         res.json().then((result, index) => {
           let locationData = this.state.locationData;
 
-          console.log(result.weather[0].icon);
+          console.log(result.weather[0]);
           locationData.push({
             city: result.name,
             country: result.sys.country,
             temp: result.main.temp,
             icon: result.weather[0].icon,
+            desc: result.weather[0].description,
           });
 
           //setting  up location data received from  api

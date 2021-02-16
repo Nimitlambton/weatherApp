@@ -28,7 +28,6 @@ class Weathers extends Component {
     var str = "http://openweathermap.org/img/wn/";
     var str2 = this.props.weatherData.icon;
     var str3 = "@2x.png";
-
     var res = str.concat(str2, str3);
     console.log(res);
     return res;
@@ -40,10 +39,10 @@ class Weathers extends Component {
       <div className="bg-black h-48 w-48 p-2 m-4  text-white  hover:border-red-600 hover:bg-gray-500  border-4  hover:text-red-500 rounded-lg justify-between  shadow-2xl  ">
         <div className="flex justify-center  h-12 text-6xl">
           <img src={this.returnImgSrc()} alt="weather img "></img>
+          <h6 className="text-lg"> {this.props.weatherData.desc} </h6>
         </div>
         <div className="mt-8  h-12  flex justify-center items-center ">
           {this.props.weatherData.temp} °C
-          {this.props.weatherData.icon}
         </div>
         <div className="flex justify-center items-center "></div>
 
