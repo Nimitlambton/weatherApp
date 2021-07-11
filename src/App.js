@@ -46,7 +46,7 @@ class App extends Component {
           <img src={HeroImg} alt="heroImg" className="w-screen  rounded-lg" />
         </div>
 
-        <div className="h-screen w-screen   shadow-2xl  ">
+        <div className="h-screen w-screen   shadow-2xl relative  ">
           <div className=" flex flex-wrap  mb-auto   shadow-2xl  ">
             {this.state.locationData.map((locObj, index) => {
               console.log(index);
@@ -74,7 +74,7 @@ class App extends Component {
 
           {/* Footer */}
 
-          <div className="flex  bg-gray-900 justify-center h-16 w-screen  items-center text-yellow-600 text-xl flex-wrap ">
+          <div className="  absolute bottom-0  flex  bg-gray-900 justify-center h-16 w-screen  items-center text-yellow-600 text-xl flex-wrap ">
             Made by Nimit pamnani with ❤️ in Toronto CA
           </div>
         </div>
